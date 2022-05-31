@@ -8,468 +8,18 @@
     <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+KR:wght@300;400;500&display=swap"
     rel="stylesheet">
+    <!-- header -->
+    <link rel="stylesheet" type="text/css" href="header_style.css">
+    <!--오예림 조별과제  -->
+    <link rel="stylesheet" type="text/css" href="oliveyoung_stylesheet.css">
+    <!-- footer -->
+    <link rel="stylesheet" type ="text/css" href="item.css"> <!--글자, 테두리 크기-->
+    <link rel="stylesheet" type ="text/css" href="notice_area.css"><!--공지사항 부분-->
+    <link rel="stylesheet" type ="text/css" href="customer_area.css"><!--고객센터 부분-->
+    <link rel="stylesheet" type ="text/css" href="app_down_link.css"><!--모바일이미지-->
+    <link rel="stylesheet" type ="text/css" href="main.css"><!--기본 틀-->
+
   <style>
-    @charset "utf-8";
-
-    @font-face {
-      font-family: NotoSansCJKkr;
-      font-style: normal;
-      font-weight: 400;
-      src: local(NotoSansCJKkr), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Regular.woff2") format("woff2"), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Regular.woff") format("woff")
-    }
-
-    @font-face {
-      font-family: NotoSansCJKkr;
-      font-style: normal;
-      font-weight: 500;
-      src: local(NotoSansCJKkr), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Medium.woff2") format("woff2"), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Medium.woff") format("woff")
-    }
-
-    @font-face {
-      font-family: NotoSansCJKkr;
-      font-style: normal;
-      font-weight: 700;
-      src: local(NotoSansCJKkr), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Bold.woff2") format("woff2"), url("https://www.oliveyoung.co.kr/pc-static-root/fonts/NotoSansCJKkr-Bold.woff") format("woff")
-    }
-
-    @font-face {
-      font-family: Dovemayo-Medium;
-      src: url("https://www.oliveyoung.co.kr/pc-static-root/fonts/dovemayo/Dovemayo-Medium.woff") format('woff');
-      font-weight: 400;
-      font-style: normal
-    }
-
-
-    body {
-      margin: 0;
-      /* 바디 자체 마진값 삭제*/
-      font-family: Montserrat, -apple-system, 'Noto Sans KR',
-        AppleSDGothicNeo, Roboto, dotum, '돋움', sans-serif;
-    }
-
-    input {
-      outline: none;
-      /* 인풋 박스 바깥라인 제거*/
-    }
-
-    a {
-      color: inherit;
-      /* 하이퍼 링크의 파란색 색깔을 부모색(현재 검정)으로 바꿈*/
-      text-decoration: none;
-      /* 하이퍼 링크의 밑줄 제거*/
-    }
-
-    ul,
-    li,
-    h1,
-    h2,
-    p,
-    fieldset {
-      /* 마진 패딩 기본값 제거*/
-      padding: 0;
-      margin: 0;
-    }
-
-    #header {
-      width: 1020px;
-      margin: 0 auto;
-    }
-
-    #header .top {
-      top: 0;
-      right: 0;
-      position: relative;
-      height: 30px;
-    }
-
-    #header .top .menu_list {
-      margin: 0 auto;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    #header .top .menu_list a {
-      /* .menu_list>li 에서 a로 바꿈*/
-      font-size: 12px;
-      /* 노가다 */
-      /*float: left;  div에서 float 설정시 display 요소가 먹히지 않아 삭제.
-      상위 속성에서 top, right로 설정해서 필요 없음*/
-      padding: 0 9px 0 8px;
-      /* 올리브영 기준 0 9 0 12지만 사이 세로줄이 
-      border가 아니라 이미지 파일이여서 12 -> 8px로 변경*/
-      line-height: 30px;
-      white-space: nowrap;
-      border-left: 1px solid #b6b6b6;
-    }
-
-    #header .top .menu_list li:first-child a {
-      /* 왼쪽 보더만 삭제 */
-      border-left: none;
-    }
-
-    fieldset {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 90px;
-      border: none;
-    }
-
-    .search_box {
-      /* float: left;  div에서 float 설정시 display 요소가 먹히지 않아 삭제*/
-      position: relative;
-      width: 271px;
-      height: 36px;
-      left: 35px;
-      /* margin: 0px  0 90px;  줄 필요 없음*/
-      padding: 0 45px 0 20px;
-      border: 2px solid #9bce26;
-      background: rgb(255, 255, 255);
-      border-radius: 20px
-    }
-
-    .search_box input[type=text] {
-      width: 260px;
-      height: 18px;
-      border: 0;
-      /* padding: 8px 10px 8px 0; */
-      font-size: 12px
-    }
-
-    .search_box_btn {
-      position: absolute;
-      /* 절대좌표로 이동 */
-      top: 7px;
-      right: 12px;
-      border: none;
-      /* 버튼 외곽선 제거 */
-      background-color: transparent;
-      /* 버튼 기본색 투명화 */
-    }
-
-    .search_box_list {
-      display: none;
-    }
-
-    .search_box.test .search_box_list {
-      display: flex;
-      position: absolute;
-      width: 332px;
-      top: -2px;
-      left: -2px;
-      height: 360px;
-      background-color: rgb(255, 255, 255);
-      border: 2px solid #9bce26;
-      margin: 0;
-      text-indent: 3px;
-      border-radius: 20px;
-      z-index: 20px;
-
-    }
-
-    /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-
-    li {
-      text-decoration: none;
-      list-style-type: none;
-    }
-
-    /* display: inline; ul 스타일에 적용*/
-    ul {
-      display: flex;
-    }
-
-    .right li {
-      display: flex;
-      position: relative;
-      font-size: 14px;
-      border-left: 1px solid rgb(140, 140, 140);
-      padding: 3px 12px 3px 12px;
-      align-items: center;
-    }
-
-    .show1:first-child {
-      border-left: none;
-    }
-    
-    .show1,
-    .show2,
-    .show3 {
-      position: relative;
-    }
-
-
-    .show1:hover,
-    .show2:hover,
-    .show3:hover {
-      border-bottom: 2px solid black;
-    }
-
-    /* 오늘 드림 */
-    .show1_hover_show {
-      display: none;
-    }
-
-    .show1:hover .show1_hover_show {
-      position: absolute;
-      display: block;
-      width: 200px;
-      background-color: white;
-      box-shadow: 2px 0 7px 2px (rgb(0 0 0) / 20%);
-      border: 2px solid #9bce26;
-      border-radius: 5px;
-      font-size: 12px;
-      padding: 5px 10px 5px 10px;
-      top: 45px;
-      left: 0px;
-      z-index: 10;
-    }
-
-    .show1:hover .show1_hover_show::after {
-      border-top: 0px solid transparent;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid #9bce26;
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: 40px;
-    }
-
-    /* 관심 매장 소식 */
-    
-    .show2_hover_show {
-      display: none;
-    }
-
-    .show2:hover .show2_hover_show {
-      position: absolute;
-      display: block;
-      width: 553px;
-      height: 150px;
-      padding-bottom: 20px;
-      background-color: white;
-      box-shadow: 2px 0 7px 2px (rgb(0 0 0) / 20%);
-      border: 2px solid #9bce26;
-      border-radius: 5px;
-      font-size: 16px;
-      padding: 5px 10px 5px 10px;
-      top: 45px;
-      right: 0px;
-      z-index: 10;
-      text-align: center;
-      box-sizing: content-box;
-      font-weight: 600;
-    }
-
-    .show2:hover .show2_hover_show::after {
-      border-top: 0px solid transparent;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid #9bce26;
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: 40px;
-    }
-
-    .show2_page {
-      display: block;
-      border: none;
-      justify-content: center;
-    }
-
-    .show2_btn {
-      border: 1px solid #b6b6b6;
-      /* 버튼 외곽선 제거 */
-      background-color: transparent;
-      /* 버튼 기본색 투명화 */
-      padding: 5px 20px 5px 20px;
-
-    }
-    .show2_1 {
-      padding: 15px 0 30px 0;
-      border-bottom: 1px solid rgb(215, 215, 215);
-    }
-    .show2_2 {
-      padding: 10px 0 15px 0;
-    }
-    /* 최근 본 상품 */
-    .show3_list {
-      display: none;
-      flex-direction: column;
-    }
-
-    .show3.test .show3_list {
-      display: flex;
-      position: absolute;
-      width: 1020px;
-      top: 45px;
-      right: -4px;
-      height: 360px;
-      background-color: rgb(255, 255, 255);
-      border: 2px solid #9bce26;
-      margin: 0;
-      text-indent: 3px;
-      z-index: 10px;
-    }
-    .show3_1 {
-      display: flex;
-      justify-items: center;
-      margin: auto 20px;
-      font-size: 14px;
-      font-weight: 500;
-      background-color: #ddd;
-      border-bottom: 2px solid #666;
-    }
-    .show3_2 {
-      display: grid;
-      position: relative;
-      justify-items: center;
-      align-items: center;
-      height: 280px;
-      width: 980px;
-      margin: auto 20px;
-      font-size: 14px;
-      font-weight: 500;
-      background-color: #ddd;
-    }
-
-    .show3.test .show3_list::after {
-      border-top: 0px solid transparent;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid #9bce26;
-      content: "";
-      position: absolute;
-      top: -10px;
-      right: 40px;
-    }
-
-    /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-    /* nav 영역 */
-    nav {
-      display: flex;
-      /* 컨테이너로 가로정렬 */
-      border-top: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-      width: 100vw;
-      /* header에서 1020px로 고정해놨지만 홈페이지상 위 아래로 줄이 있어
-      가로 화면 전체를 줄 긋기 위해 사용*/
-      margin-left: calc((100vw - 1020px) / 2 * -1);
-      /* width로 화면 전체에 줄을 그었지만 '카테고리'부터 줄 시작되서 
-      calc(계산)로 Viewport width에 1020px 계산 후 -1 값을 줘서 좌측으로 이동  */
-      border-bottom: 2px solid black;
-    }
-
-    nav>div {
-      display: flex;
-      width: 1020px;
-      margin: 0 auto;
-      /* 값이 2개만 있을 경우 첫번째는 상하 두번째는 좌우 값으로 적용*/
-    }
-
-    .category {
-      position: relative;
-      width: 170px;
-      font-weight: 500;
-      padding: 10px;
-      border-right: 1px solid #ddd;
-      border-left: 1px solid #ddd;
-      font-size: 16px;
-      text-align: center;
-    }
-
-    .category_list {
-      display: none;
-      text-align: left;
-    }
-
-    .category_list>li h2 {
-      float: left;
-      width: 100%;
-      font-size: 18px;
-      margin-bottom: 17px;
-      border-bottom: 1px solid #666;
-      color: black;
-    }
-
-    .category_list>li {
-      font-size: 14px;
-      display: list-item;
-      width: 254px;
-      padding: 30px 0 0 30px;
-    }
-
-    .category_list>li:first-child {
-      width: 508px;
-      border-left: none;
-    }
-
-    .category_name {
-      display: flex;
-      font-size: 16px;
-      padding: 10px 10px 22px 12px;
-      border-bottom: 1px solid #666;
-
-    }
-
-    .category_box {
-      float: left;
-      width: 155px;
-    }
-
-    .category_box>p {
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .category_box ul {
-      display: flex;
-      /* align-content: flex-start; */
-      /* flex-wrap: wrap; */
-      flex-direction: column;
-      /* overflow: auto; */
-      /* white-space: nowrap; */
-      line-height: 22px;
-      margin: 10px 6px 10px 0px;
-      color: #666;
-    }
-
-    /* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
-    .category.test .category_list {
-      display: flex;
-      position: absolute;
-      top: 44px;
-      left: -1px;
-      width: 1020px;
-      background-color: rgb(255, 255, 255);
-      border: 2px solid black;
-      margin: 0;
-      text-indent: 3px;
-    }
-
-    .category2 {
-      width: 100%;
-      font-weight: 500;
-      font-size: 16px;
-    }
-
-    .category2 ul {
-      height: 100%;
-      display: flex;
-      position: relative;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-
-    .category2 li:hover {
-      color: rgb(255, 78, 108);
-      border-bottom: 2px solid rgb(254, 78, 108);
-    }
-
     /* <header<-->body> */
         * {
         margin: 0;
@@ -1346,10 +896,363 @@
             <li><a href="">이벤트</a></li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
-  <!--header<->body-->
+  <!--header<->완성 올리브영-->
+
+  <div class="container">
+    <div class=" content1">
+      <div class="main_full_banner">
+        <a href="https://bit.ly/3m34ZAF">
+          <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/8595331980087139053.jpg"
+          alt="올리브영데이_강영아"/>
+        </a>
+        <p class="banner_desc">
+          <span class="bigtit">멤버십을 위한<br /><span>_</span><br/></span>
+          <strong>단 3일간 <br />만나는 <br />올리브영데이</strong><br />
+          <span>최대 60% 할인혜택 누려요</span>
+        </p>
+        <p>
+          <ul class="main_cate_list">
+            <li  ></li>
+            <li class="menu"><p class="li1"><a href="https://bit.ly/3yWkkKV" >기초화장품</a></p></li>
+            <li class="menu"><p class="li2"><a href="https://bit.ly/39VO3c9">더모코스메틱</a></p></li>
+            <li class="menu"><p class="li3"><a href="https://bit.ly/3m31DO5">메이크업º네일</a></p></li>
+            <li class="menu"><p class="li4"><a href="https://bit.ly/3lI3nfg">바디케어</a></p></li>
+            <li class="menu"><p class="li5"><a href="https://bit.ly/3yYcQa2">헤어케어</a></p></li>
+            <li class="menu"><p class="li6"><a href="https://bit.ly/3zgtGBt">향수/디퓨저</a></p></li>
+            <li class="menu"><p class="li7"><a href="https://bit.ly/3lINsxd">미용소품</a></p></li>
+            <li class="menu"><p class="li8"><a href="https://bit.ly/3sXnU3C">남성</a></p></li>
+            <li class="menu"><p class="li9"><a href="https://bit.ly/3MPdsDf">건강/위생용품</a></p></li>
+            <li class="menu"><p class="li10"><a href="https://bit.ly/39Xk3g3">건강식품</a></p></li>
+            <li class="menu"><p class="li11"><a href="https://bit.ly/3wS7MRU">푸드</a></p></li>
+            <li class="menu"><p class="li12"><a href="https://bit.ly/3GiymIt">라이프/홈</a></p></li>
+            <li class="menu"><p class="li13"><a href="https://bit.ly/3MNUqNf">반려동물</a></p></li>
+            <li class="menu"><p class="li14"><a href="https://bit.ly/3Nwx8LU">베이비</a></p></li>
+            <li class="main_menu">
+              <span class="li15"><img width="20px"
+                src="https://www.oliveyoung.co.kr/pc-static-root/image/comm/icon_awards_32.png" ></span>
+              <a href="https://bit.ly/3N1XJ3u">
+                AWARDS</a></img>
+            </li>
+          </ul>
+        </p>
+
+        <span class="button1">
+          <div class="pre button>"><button type="button" onclick="alert('이전')">
+            <img class="profile"width="30px" height="30px"src="./조별과제 이미지/이전버튼.jpg"></button> </div>
+          <div class="numbering">1/15</div>
+          <div class="next button"><button type="button"><img class="profile"width="30px" height="30px" src="./조별과제 이미지/다음버튼.jpg"></button></div>
+          <div class="stop button"><button type="button"><img class="profile"width="30px" height="30px" src="./조별과제 이미지/멈춤버튼.jpg"></button></div>
+        </span>
+      </div>    
+    <!-- mid_banner -->
+      </br>
+      <div class="content2">
+        <span class="up1">
+          <a href="https://bit.ly/3N5olRz"
+            class="home_banner_top_split">
+            <img
+              src="https://bit.ly/3M2rIY9"
+              alt="올리브영에서 건강올령!"
+            />
+          </a>
+        </span>
+        <span class="up2">
+          <a href="https://bit.ly/3MQUMD2"
+            class="home_banner_top_split">
+            <img
+              src="https://bit.ly/39VJ5MA"
+              alt="골때녀_노윤주 추천 이너뷰티"
+            />
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <!-- last banner -->
+  </br>
+      <div class="content3">
+        <!-- last left banner -->
+        <div class="last_left_banner">
+          <div class="left_title">
+            <br>유사한 고객님이</br>많이 구매했어요</strong>
+            
+          </div>
+          
+          <div class="moreBtn1">더보기
+              <botton type="button"><img width="6" height="10" src="./조별과제 이미지/more버튼.png" ></botton>
+            </div>
+          
+
+
+
+          <div class=left_img_two_area>
+            <span class="left_img1">
+              <img width="215" height="215" src="https://bit.ly/38mNacm" alt="폰즈 뉴스파 립앤아이리무버 120ml 1+1 기획" >
+            </span>
+            <span class="left_img2">
+              <img width="215" height="215"src="https://bit.ly/3LS1ZBv" alt="[단독기획] 마녀공장 퓨어 클렌징 오일 300ml (+ 25ml + 필링젤20ml+블랙헤드 킬패드 5매 증정)">
+            </span>
+          </div>
+          <div class="left_img1_name">
+            <p class="name1">폰즈 뉴스파 립앤아이리무버 120ml 1+1 기획</p>
+            <button class="bsc1"type="button"><img width="20"height="20" src="https://bit.ly/3tnyPnx"></button>
+            <div class="left_img2_name">
+              <p class="name2">[단독기획] 마녀공장 퓨어 클렌징 오일 300ml (+ 25ml...)</p>
+              <button class="bsc2"type="button"><img width="20"height="20" src="https://bit.ly/3tnyPnx"></button>
+          </div>
+          <p class="price1"><span class="tx_num">10,900원</span></p>
+          <p class="price2"><span class="tx_num2">19,900원</span></p>
+          <p class="todayntc"><span class="todayicon1">오늘드림</span></p>
+          <p class="todayntc"><span class="todayicon2">세일</span><span class="todayicon3">오늘드림</span></p>
+            
+        </div>
+
+        <div class="last_right_banner">
+          <div class="right_title">
+            <br>최근 본 상품과</br>연관 상품 추천해드려요</strong>
+            
+          </div>
+
+          <div class="moreBtn2">더보기
+              <botton type="button"><img width="6" height="10" src="./조별과제 이미지/more버튼.png" ></botton>
+          </div>
+
+
+        </div>
+        <!-- last right banner -->
+
+         <div class="right_img_two_area">
+          <span class="right_img1">
+           <img width="215" height="215" src="https://bit.ly/3MRSZ0h" alt="센카 퍼펙트 휩 페이셜 워시 더블 기획 (본품 120g*2+더블워시 15g 증정" >
+         </span>
+
+         <span class="right_img2">
+            <img width="215" height="215"src="https://bit.ly/3xc3CVt" alt="셀퓨전씨 토닝 썬스크린 100 스페셜 한정 기획 (35ml+35ml+20ml)">
+         </span>
+
+          </div>
+
+        <div class="right_img1_name">
+          <p class="name3">폰즈 뉴스파 립앤아이리무버 120ml 1+1 기획</p>
+          <button class="bsc3"type="button"><img width="20"height="20" src="https://bit.ly/3tnyPnx"></button>
+         <div class="right_img2_name">
+            <p class="name4">[단독기획] 마녀공장 퓨어 클렌징 오일 300ml (+ 25ml...)</p>
+           <button class="bsc4"type="button"><img width="20"height="20" src="https://bit.ly/3tnyPnx"></button>
+        </div>
+        <p class="price3"><span class="tx_num3">10,900원</span></p>
+        <p class="price4"><span class="tx_num4">19,900원</span></p>
+        <p class="todayntc"><span class="todayicon4">오늘드림</span></p>
+        <p class="todayntc"><span class="todayicon5">쿠폰</span><span class="todayicon6">세일</span></p>
+
+
+          </div>
+          <!-- <div clas="left_link">
+            <span class="best_font1">베스트</span>
+            <span class="best_font2">베스트</span>
+          </div>
+          <div clas="left_link">
+            <span class="best_font3">베스트</span>
+            <span class="best_font4">베스트</span>
+          </div> -->
+        </div>
+      </div>
+<!-- 완성 올리브영 <-> 오예림 조별과제 -->
+<div class="banner1">
+  <div class="title">
+      <a href="https://www.oliveyoung.co.kr/store/main/getOnlyOneList.do">
+          <span style="font-size: 16px;">EXCLUSIVE</span>
+          <strong>오직 올리브영에서만
+      <span><button class="button_num">1</button></span>
+      <span><button class="button_num">2</button></span>
+  </strong>
+      </a>
+  </div>
+
+  <div class="mini1">
+      <span>
+      <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/6748796572686939943.jpg">
+      <span class="text"><h3>바이오힐보X강다니엘👑</h3><div>금액대별 정품 증정까지!</div></span>
+      </span>
+
+      <span>
+          <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/114782549387847477.jpg">
+          <span class="text"><h3>브링그린X세븐틴</h3><div>티트리 시카 커밍순!</div></span>
+      </span>
+
+      <span>
+          <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/8375225260508821294.jpg">
+          <span class="text"><h3>화제의 콜라보 굿즈세트</h3><div>+달고나 스마트톡 증정!</div></span>
+      </span>
+  </div>
+</div>
+
+<div class="banner2">
+<div class="title">
+  <strong style="border-bottom: 1px solid gray; width: 70%;">이 상품 어때요?
+  <span><button class="button_num">1</button></span>
+  <span><button class="button_num">2</button></span>
+  <span><button class="button_num">3</button></span>
+  </strong>
+</div>
+<button class="button_next_left">《</button>
+
+<div class="mini2">
+  <div class="items">
+  <span>
+      <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016200913ko.jpg?l=ko" 
+              style="width: 100%; height:auto!important";>
+  </span>
+<span class="subject">헉슬리</span>
+<div class="comment">헉슬리 퍼퓸 15ml<br> 3종 중 택1</div>
+<div>
+  <span class="price"><del>48,000원</del></span><span class="sale">39,800원</span>
+</div>
+<span class="icon_flag">
+  <span class="sale">세일</span>
+  <span class="gift">증정</span>
+  <span class="delivery">오늘드림</span>
+</span>   
+
+<div class="icon_best">베스트</div>
+<div class="icon_heart" style="font-size: 20px;">♡</div>
+</div>
+
+<div class="items">
+<span>
+  <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016557901ko.jpg?l=ko"
+      style="width: 100%; height:auto!important";>
+</span>    
+<span class="subject">질레트</span>
+<div class="comment">질레트 닥터스트레인지 <br>프로글라이드 파워 한정기획</div>
+<div>
+  <span class="price"><del>29,9000원</del></span><span class="sale">25,900원</span>
+</div>
+<span class="icon_flag">
+  <span class="sale">세일</span>
+  <span class="gift">증정</span>
+  <span class="delivery">오늘드림</span>
+</span>
+<div class="icon_best">베스트</div>
+<div class="icon_heart" style="font-size: 20px;">♡</div>
+</div>
+
+<div class="items">
+<span>
+  <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016589603ko.jpg?l=ko" 
+      style="width: 100%; height:auto!important";>
+</span>
+<span class="subject">바비브라운</span>
+<div class="comment">[1+1기획] 바비브라운 <br>엑스트라 립 틴트 기획 3종</div>
+<div>
+  <span class="sale">44,000원</span>
+</div>
+<span class="icon_flag">
+  <span class="gift">증정</span>
+  <span class="delivery">오늘드림</span>
+</span>
+<div class="icon_best">베스트</div>
+<div class="icon_heart" style="font-size: 20px;">♡</div>
+</div>
+
+<div class="items">
+<span>
+  <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016651902ko.jpeg?l=ko" 
+  style="width: 100%; height:auto!important";>
+</span>
+<span class="subject">꼬달리</span>
+<div class="comment">[1+1증정] 꼬달리 <br>핸드 앤 립 듀오</div>
+<div>
+  <span class="sale">44,000원</span>
+</div>
+  <span class="icon_flag">
+      <span class="gift">증정</span>
+      <span class="delivery">오늘드림</span>
+  </span>
+  <div class="icon_heart_error" style="font-size: 20px;">♡</div>
+</div>
+</div>
+  <button class="button_next_right">》</button>
+</div>
+
+<div class="banner3">
+<div class="title">
+  <strong>Heathy Life</strong>
+</div>
+<div>
+<button class="button_next_left">《</button>
+</div>
+<div class="mini3">
+  <span>
+  <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/4762393897941695301.jpg">
+      <span class="text"><h3>청년도배사 추천 클렌징</h3><div>유퀴즈 출연 청년도배사의<br>현장 속 아이템 소개합니다</div></span>
+  </span>
+
+  <span>
+  <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/6920789122630632278.png">
+      <span class="text"><h3>국대 장은실선수의 건강루틴</h3><div>17년차 레슬러가 추천하는<br>건강관리 아이템 소개합니다</div></span>
+  </span>
+
+  <span>
+  <img class="img" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/289/160095388447261047.jpg">
+      <span class="text"><h3>노윤주 아나운서의 이너뷰티</h3><div>스포츠에 진심인 골때녀키퍼<br>노윤주의 건강루틴 소개합니다</div></span>
+  </span>
+</div>
+
+<div>
+<button class="button_next_right">》</button>
+</div>
+
+</div>
+
+<!--오예림 조별과제 <-> footer -->
+<div id="Container">
+  <div id="Contents">
+      <div class="main_customer_box">
+          <div class="notice_area">
+              <h4>공지사항</h4>
+              <div class="notice_cont">새로운 소식이 없어요.</div>
+              <a href="https://www.oliveyoung.co.kr/store/counsel/getNoticeList.do" class="more_view">더보기</a>
+          </div>
+          <div class="customer_area">
+              <h4>고객센터</br>이용안내</h4>
+              <div class="tel_info">
+                  <ul>
+                      <li>
+                          <strong>온라인몰 고객센터</strong>
+                          <img src="https://image.oliveyoung.co.kr/pc-static-root/image/main/img_online_tel.png"
+                              alt="1522-0882">
+                      </li>
+                      <li>
+                          <strong>매장 고객센터</strong>
+                          <img src="https://image.oliveyoung.co.kr/pc-static-root/image/main/img_offline_tel.png"
+                              alt="1577-4887">
+                      </li>
+                  </ul>
+              </div>
+              <div class="online_info">
+                  <p class="time_info">고객센터 운영시간[평일09:00 - 18:00]</p>
+                  <p>주말 및 공휴일은 1:1문의하기를 이용해주세요</br>
+                      업무가 시작되면 바로 처리해 드리겠습니다.</p>
+                  <!--자바 스크립트로 인해 a태그를 이용해서 페이지 이동-->
+                  <a href="https://www.oliveyoung.co.kr/store/counsel/getQnaList.do?cnslSeq="><button
+                          class="btnInquiry"
+                          onclick="javascript:common.link.moveQnaList();"><span></span>1:1문의하기</button></a>
+                  <a href="https://www.oliveyoung.co.kr/store/counsel/getFaqList.do?faqLrclCd=99"><button
+                          class="btnFaqTop" onclick="javascript:common.faq.getFaqList('99');"><span></span>자주하는
+                          질문</button></a>
+              </div>
+          </div>
+          <div class="app_down_link">
+              <img src="https://image.oliveyoung.co.kr/pc-static-root/image/main/img_mobile_app.png"
+                  alt="올리브영 모바일 웹-앱을 설치하고 다양한 혜택을 누리세요!">
+          </div>
+      </div>
+  </div>
+</div>
+
 
 
 </body>
